@@ -1,0 +1,1 @@
+conda run -n rock-kit3 python /home/ehsan/UvA/Sub_Model/Sub_Func.py --Start=7 --End=13 --Model=/home/ehsan/UvA/Sub_Model/Google/bvlc_googlenet.caffemodel --Structure=/home/ehsan/UvA/Sub_Model/Google/deploy.prototxt

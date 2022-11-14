@@ -1,0 +1,168 @@
+file /data/data/com.termux/files/home/ARMCL-RockPi//graphs/Squeeze_1_19.rknn exist on board
+userspace
+800000000
+1800000
+1416000
+/data/data/com.termux/files/home/ARMCL-RockPi//test_graph//graph_squeezenet_n_pipe_npu  --target=CL --data=/data/data/com.termux/files/home/ARMCL-RockPi/assets/./squeezenet/ --image=/data/data/com.termux/files/home/ARMCL-RockPi/assets/./ppm_images_227/ --labels=/data/data/com.termux/files/home/ARMCL-RockPi/assets/./labels.txt --n=10 --save=0 --annotate=0 --partition_point=100 --partition_point2=100 --order=NNNNNNNNNNNNNNNNNNN --layer_time=0 --threads=2  --threads2=4 --GPU_host=L --NPU_host=B 
+
+/data/data/com.termux/files/home/ARMCL-RockPi//test_graph//graph_squeezenet_n_pipe_npu
+
+5 Input images are read from /data/data/com.termux/files/home/ARMCL-RockPi/assets/./ppm_images_227/
+NPU host: 4
+Little Cores host: 3
+Big Cores host: 5
+GPU host: 2
+Threads : 2
+Small Cores Threads : 4
+Target : CL
+Data type : F32
+Data layout : NHWC
+Tuner enabled? : false
+Cache enabled? : true
+Tuner mode : Normal
+Number of Layers: 19
+Tuner file : 
+MLGO file : 
+Fast math enabled? : false
+Data path : /data/data/com.termux/files/home/ARMCL-RockPi/assets/./squeezenet/
+Image file : /data/data/com.termux/files/home/ARMCL-RockPi/assets/./ppm_images_227/space_shuttle_227.jpg
+Labels file : /data/data/com.termux/files/home/ARMCL-RockPi/assets/./labels.txt
+Partition point is : 100
+Second partition point is : 100
+Order is : NNNNNNNNNNNNNNNNNNN
+GPU host is: L
+NPU host is: B
+Number of totla cores is : 6
+Number of little cores is : 4
+Run network for 10 times.
+Layer timing: 0
+
+model reading done.
+NPU Initialized
+creating image accessor
+NPU is one when inititing Image accessor
+start creating graph
+creating image accessor
+Total layers:19
+
+1 Running Graph with Frequency: 408000,408000,200000000
+
+npu_run: Start running NPU 0
+
+
+First graph inferencing image: 0:/data/data/com.termux/files/home/ARMCL-RockPi/assets/./ppm_images_227/space_shuttle_227.jpg
+---------- Top 5 predictions ----------
+
+0.8262 - [id = 812], n04266014 space shuttle
+0.0431 - [id = 833], n04347754 submarine, pigboat, sub, U-boat
+0.0346 - [id = 814], n04273569 speedboat
+0.0129 - [id = 867], n04467665 trailer truck, tractor trailer, trucking rig, rig, articulated lorry, semi
+0.0116 - [id = 871], n04483307 trimaran
+
+
+First graph inferencing image: 0:/data/data/com.termux/files/home/ARMCL-RockPi/assets/./ppm_images_227/space_shuttle_227.jpg
+---------- Top 5 predictions ----------
+
+0.8262 - [id = 812], n04266014 space shuttle
+0.0431 - [id = 833], n04347754 submarine, pigboat, sub, U-boat
+0.0346 - [id = 814], n04273569 speedboat
+0.0129 - [id = 867], n04467665 trailer truck, tractor trailer, trucking rig, rig, articulated lorry, semi
+0.0116 - [id = 871], n04483307 trimaran
+
+
+First graph inferencing image: 1:/data/data/com.termux/files/home/ARMCL-RockPi/assets/./ppm_images_227/go_kart.ppm
+---------- Top 5 predictions ----------
+
+0.9946 - [id = 573], n03444034 go-kart
+0.0011 - [id = 518], n03127747 crash helmet
+0.0011 - [id = 621], n03649909 lawn mower, mower
+0.0010 - [id = 665], n03785016 moped
+0.0005 - [id = 817], n04285008 sports car, sport car
+
+
+First graph inferencing image: 2:/data/data/com.termux/files/home/ARMCL-RockPi/assets/./ppm_images_227/gold_fish.ppm
+---------- Top 5 predictions ----------
+
+0.9995 - [id = 1], n01443537 goldfish, Carassius auratus
+0.0001 - [id = 27], n01631663 eft
+0.0000 - [id = 2], n01484850 great white shark, white shark, man-eater, man-eating shark, Carcharodon carcharias
+0.0000 - [id = 3], n01491361 tiger shark, Galeocerdo cuvieri
+0.0000 - [id = 4], n01494475 hammerhead, hammerhead shark
+
+
+First graph inferencing image: 3:/data/data/com.termux/files/home/ARMCL-RockPi/assets/./ppm_images_227/gondola.ppm
+---------- Top 5 predictions ----------
+
+0.9902 - [id = 576], n03447447 gondola
+0.0014 - [id = 765], n04099969 rocking chair, rocker
+0.0008 - [id = 536], n03216828 dock, dockage, docking facility
+0.0007 - [id = 532], n03201208 dining table, board
+0.0006 - [id = 540], n03240683 drilling platform, offshore rig
+
+
+First graph inferencing image: 4:/data/data/com.termux/files/home/ARMCL-RockPi/assets/./ppm_images_227/school_bus.ppm
+---------- Top 5 predictions ----------
+
+0.9995 - [id = 779], n04146614 school bus
+0.0004 - [id = 705], n03895866 passenger car, coach, carriage
+0.0001 - [id = 829], n04335435 streetcar, tram, tramcar, trolley, trolley car
+0.0001 - [id = 675], n03796401 moving van
+0.0000 - [id = 4], n01494475 hammerhead, hammerhead shark
+
+
+First graph inferencing image: 0:/data/data/com.termux/files/home/ARMCL-RockPi/assets/./ppm_images_227/space_shuttle_227.jpg
+---------- Top 5 predictions ----------
+
+0.8262 - [id = 812], n04266014 space shuttle
+0.0431 - [id = 833], n04347754 submarine, pigboat, sub, U-boat
+0.0346 - [id = 814], n04273569 speedboat
+0.0129 - [id = 867], n04467665 trailer truck, tractor trailer, trucking rig, rig, articulated lorry, semi
+0.0116 - [id = 871], n04483307 trimaran
+
+
+First graph inferencing image: 1:/data/data/com.termux/files/home/ARMCL-RockPi/assets/./ppm_images_227/go_kart.ppm
+---------- Top 5 predictions ----------
+
+0.9946 - [id = 573], n03444034 go-kart
+0.0011 - [id = 518], n03127747 crash helmet
+0.0011 - [id = 621], n03649909 lawn mower, mower
+0.0010 - [id = 665], n03785016 moped
+0.0005 - [id = 817], n04285008 sports car, sport car
+
+
+First graph inferencing image: 2:/data/data/com.termux/files/home/ARMCL-RockPi/assets/./ppm_images_227/gold_fish.ppm
+---------- Top 5 predictions ----------
+
+0.9995 - [id = 1], n01443537 goldfish, Carassius auratus
+0.0001 - [id = 27], n01631663 eft
+0.0000 - [id = 2], n01484850 great white shark, white shark, man-eater, man-eating shark, Carcharodon carcharias
+0.0000 - [id = 3], n01491361 tiger shark, Galeocerdo cuvieri
+0.0000 - [id = 4], n01494475 hammerhead, hammerhead shark
+
+
+First graph inferencing image: 3:/data/data/com.termux/files/home/ARMCL-RockPi/assets/./ppm_images_227/gondola.ppm
+---------- Top 5 predictions ----------
+
+0.9902 - [id = 576], n03447447 gondola
+0.0014 - [id = 765], n04099969 rocking chair, rocker
+0.0008 - [id = 536], n03216828 dock, dockage, docking facility
+0.0007 - [id = 532], n03201208 dining table, board
+0.0006 - [id = 540], n03240683 drilling platform, offshore rig
+
+
+First graph inferencing image: 4:/data/data/com.termux/files/home/ARMCL-RockPi/assets/./ppm_images_227/school_bus.ppm
+---------- Top 5 predictions ----------
+
+0.9995 - [id = 779], n04146614 school bus
+0.0004 - [id = 705], n03895866 passenger car, coach, carriage
+0.0001 - [id = 829], n04335435 streetcar, tram, tramcar, trolley, trolley car
+0.0001 - [id = 675], n03796401 moving van
+0.0000 - [id = 4], n01494475 hammerhead, hammerhead shark
+
+NPU subgraph: 0 --> Cost: 125.322
+
+******************************************************
+
+Frame Latency: 117.548
+
+Test passed
