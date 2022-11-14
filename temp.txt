@@ -1,1 +1,87 @@
-conda run -n rock-kit3 python /home/ehsan/UvA/Sub_Model/Sub_Func.py --Start=7 --End=13 --Model=/home/ehsan/UvA/Sub_Model/Google/bvlc_googlenet.caffemodel --Structure=/home/ehsan/UvA/Sub_Model/Google/deploy.prototxt
+file /data/data/com.termux/files/home/ARMCL-RockPi//graphs/Google_1_4.rknn exist on board
+userspace
+800000000
+1800000
+1416000
+/data/data/com.termux/files/home/ARMCL-RockPi//test_graph//graph_googlenet_n_pipe_npu  --target=CL --data=/data/data/com.termux/files/home/ARMCL-RockPi/assets/./googlenet/ --image=/data/data/com.termux/files/home/ARMCL-RockPi/assets/./ppm_images_224/ --labels=/data/data/com.termux/files/home/ARMCL-RockPi/assets/./labels.txt --n=10 --save=0 --annotate=0 --partition_point=100 --partition_point2=100 --order=NNNNBLLLGGGGG --layer_time=0 --threads=2  --threads2=4 --GPU_host=B --NPU_host=B 
+
+/data/data/com.termux/files/home/ARMCL-RockPi//test_graph//graph_googlenet_n_pipe_npu
+
+5 Input images are read from /data/data/com.termux/files/home/ARMCL-RockPi/assets/./ppm_images_224/
+NPU host: 4
+Little Cores host: 3
+Big Cores host: 5
+GPU host: 4
+Threads : 2
+Small Cores Threads : 4
+Target : CL
+Data type : F32
+Data layout : NHWC
+Tuner enabled? : false
+Cache enabled? : true
+Tuner mode : Normal
+Tuner file : 
+MLGO file : 
+Fast math enabled? : false
+Data path : /data/data/com.termux/files/home/ARMCL-RockPi/assets/./googlenet/
+Image file : /data/data/com.termux/files/home/ARMCL-RockPi/assets/./ppm_images_224/space_shuttle_224.jpg
+Labels file : /data/data/com.termux/files/home/ARMCL-RockPi/assets/./labels.txt
+Partition point is : 100
+Second partition point is : 100
+Order is : NNNNBLLLGGGGG
+GPU host is: B
+NPU host is: B
+Number of totla cores is : 6
+Number of little cores is : 4
+Run network for 10 times.
+Layer timing: 0
+
+Number of Layers: 13
+model reading done.
+NPU Initialized
+creating image accessor
+NPU is one when inititing Image accessor
+start creating graph
+creating image accessor
+Total layers:13
+
+1 Running Graph with Frequency: 1416000,1800000,800000000
+
+npu_run: Start running NPU 0
+
+
+First graph inferencing image: 0:/data/data/com.termux/files/home/ARMCL-RockPi/assets/./ppm_images_224/space_shuttle_224.jpg
+
+
+*************
+---------- Top 5 predictions ----------
+
+1.0000 - [id = 812], n04266014 space shuttle
+0.0000 - [id = 404], n02690373 airliner
+0.0000 - [id = 833], n04347754 submarine, pigboat, sub, U-boat
+0.0000 - [id = 466], n02917067 bullet train, bullet
+0.0000 - [id = 657], n03773504 missile
+
+
+First graph inferencing image: 0:/data/data/com.termux/files/home/ARMCL-RockPi/assets/./ppm_images_224/space_shuttle_224.jpg
+
+run: Start running graph 0
+
+
+First graph inferencing image: 1:/data/data/com.termux/files/home/ARMCL-RockPi/assets/./ppm_images_224/go_kart.ppm
+
+
+*************
+
+run: Start running graph 1
+
+
+First graph inferencing image: 2:/data/data/com.termux/files/home/ARMCL-RockPi/assets/./ppm_images_224/gold_fish.ppm
+
+
+*************
+
+run: Start running graph 2
+
+
+First graph inferencing image: 3:/data/data/com.termux/files/home/ARMCL-RockPi/assets/./ppm_images_224/gondola.ppm

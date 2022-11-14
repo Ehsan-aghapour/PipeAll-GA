@@ -626,6 +626,7 @@ def Eval_Experimental(Order, Host_Config,Freqs):
             p.communicate()
         time.sleep(10)
         R={'Latency':20000,'FPS':0.002,'Power':200000}
+        ProfResult[k].setdefault(f,R)
         return -1
 
     #print(f'salam2:{_L}-{_FPS}')
