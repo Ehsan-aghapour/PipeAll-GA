@@ -1,17 +1,19 @@
-file /data/data/com.termux/files/home/ARMCL-RockPi//graphs/Google_1_4.rknn exist on board
+file /data/data/com.termux/files/home/ARMCL-RockPi//graphs/Alex_8_8.rknn exist on board
 userspace
 800000000
 1800000
 1416000
-/data/data/com.termux/files/home/ARMCL-RockPi//test_graph//graph_googlenet_n_pipe_npu  --target=CL --data=/data/data/com.termux/files/home/ARMCL-RockPi/assets/./googlenet/ --image=/data/data/com.termux/files/home/ARMCL-RockPi/assets/./ppm_images_224/ --labels=/data/data/com.termux/files/home/ARMCL-RockPi/assets/./labels.txt --n=10 --save=0 --annotate=0 --partition_point=100 --partition_point2=100 --order=NNNNBLLLGGGGG --layer_time=0 --threads=2  --threads2=4 --GPU_host=B --NPU_host=B 
+/data/data/com.termux/files/home/ARMCL-RockPi//test_graph//graph_alexnet_n_pipe_npu  --target=CL --data=/data/data/com.termux/files/home/ARMCL-RockPi/assets/./alexnet/ --image=/data/data/com.termux/files/home/ARMCL-RockPi/assets/./ppm_images_227/ --labels=/data/data/com.termux/files/home/ARMCL-RockPi/assets/./labels.txt --n=10 --save=0 --annotate=0 --partition_point=100 --partition_point2=100 --order=LLLLBBGN --layer_time=0 --threads=2  --threads2=4 --GPU_host=L --NPU_host=L 
 
-/data/data/com.termux/files/home/ARMCL-RockPi//test_graph//graph_googlenet_n_pipe_npu
+/data/data/com.termux/files/home/ARMCL-RockPi//test_graph//graph_alexnet_n_pipe_npu
 
-5 Input images are read from /data/data/com.termux/files/home/ARMCL-RockPi/assets/./ppm_images_224/
-NPU host: 4
+5 Input images are read from /data/data/com.termux/files/home/ARMCL-RockPi/assets/./ppm_images_227/
+CN:L, CG:L
+NPU host: 1
 Little Cores host: 3
 Big Cores host: 5
-GPU host: 4
+GPU host: 2
+Number of Layers: 8
 Threads : 2
 Small Cores Threads : 4
 Target : CL
@@ -23,65 +25,226 @@ Tuner mode : Normal
 Tuner file : 
 MLGO file : 
 Fast math enabled? : false
-Data path : /data/data/com.termux/files/home/ARMCL-RockPi/assets/./googlenet/
-Image file : /data/data/com.termux/files/home/ARMCL-RockPi/assets/./ppm_images_224/space_shuttle_224.jpg
+Data path : /data/data/com.termux/files/home/ARMCL-RockPi/assets/./alexnet/
+Image file : /data/data/com.termux/files/home/ARMCL-RockPi/assets/./ppm_images_227/space_shuttle_227.jpg
 Labels file : /data/data/com.termux/files/home/ARMCL-RockPi/assets/./labels.txt
 Partition point is : 100
 Second partition point is : 100
-Order is : NNNNBLLLGGGGG
-GPU host is: B
-NPU host is: B
+Order is : LLLLBBGN
+GPU host is: L
+NPU host is: L
 Number of totla cores is : 6
 Number of little cores is : 4
 Run network for 10 times.
 Layer timing: 0
 
-Number of Layers: 13
-model reading done.
-NPU Initialized
-creating image accessor
-NPU is one when inititing Image accessor
 start creating graph
 creating image accessor
-Total layers:13
-
-1 Running Graph with Frequency: 1416000,1800000,800000000
-
-npu_run: Start running NPU 0
-
-
-First graph inferencing image: 0:/data/data/com.termux/files/home/ARMCL-RockPi/assets/./ppm_images_224/space_shuttle_224.jpg
+0( 0 ):conv1
+0( 1 ):norm1
+0( 2 ):pool1
+1( 3 ):conv2_g0
+1( 4 ):conv2_g1
+1( 5 ):conv2
+1( 6 ):norm2
+1( 7 ):pool2
+2( 8 ):conv3
+3( 9 ):conv4_g0
+3( 10 ):conv4_g1
+3( 11 ):conv4
+std::string task_names[] = { "conv1", "norm1", "pool1", "conv2_g0", "conv2_g1", "conv2", "norm2", "pool2", "conv3", "conv4_g0", "conv4_g1", "conv4" };
+number of tasks: 12
+std::set<std::string> end_task_names = { "pool1", "pool2", "conv3", "conv4" };
+number of end tasks: 4
+0( 0 ):conv5_g0
+0( 1 ):conv5_g1
+0( 2 ):conv5
+0( 3 ):pool5
+1( 4 ):fc6
+std::string task_names[] = { "conv5_g0", "conv5_g1", "conv5", "pool5", "fc6" };
+number of tasks: 5
+std::set<std::string> end_task_names = { "pool5", "fc6" };
+number of end tasks: 2
+0( 0 ):fc7
+std::string task_names[] = { "fc7" };
+number of tasks: 1
+std::set<std::string> end_task_names = { "fc7" };
+number of end tasks: 1
+model reading done.
+NPU Initialized
 
 
 *************
+tensor name:
+index:0	 n_dims:4	Dims: 4096  1  1  1  
+elements:4096 	 size:8192 	 type:1 	 qtype:0 	 scale:1.000000
+
+
+*************
+Total layers:8
+
+1 Running Graph with Frequency: 408000,600000,300000000
+
+
+WarmUp: First graph inferencing image: 0:/data/data/com.termux/files/home/ARMCL-RockPi/assets/./ppm_images_227/space_shuttle_227.jpg
+Subgraph0 Ready to trigger Start Running
+Subgraph1 Ready to trigger Start Running
+Subgraph2 Ready to trigger Start Running
 ---------- Top 5 predictions ----------
 
-1.0000 - [id = 812], n04266014 space shuttle
-0.0000 - [id = 404], n02690373 airliner
-0.0000 - [id = 833], n04347754 submarine, pigboat, sub, U-boat
-0.0000 - [id = 466], n02917067 bullet train, bullet
-0.0000 - [id = 657], n03773504 missile
+0.9653 - [id = 812], n04266014 space shuttle
+0.0242 - [id = 404], n02690373 airliner
+0.0057 - [id = 657], n03773504 missile
+0.0021 - [id = 895], n04552348 warplane, military plane
+0.0017 - [id = 744], n04008634 projectile, missile
+NPU0 Ready to trigger Start Running
 
 
-First graph inferencing image: 0:/data/data/com.termux/files/home/ARMCL-RockPi/assets/./ppm_images_224/space_shuttle_224.jpg
-
-run: Start running graph 0
 
 
-First graph inferencing image: 1:/data/data/com.termux/files/home/ARMCL-RockPi/assets/./ppm_images_224/go_kart.ppm
 
 
-*************
 
-run: Start running graph 1
-
-
-First graph inferencing image: 2:/data/data/com.termux/files/home/ARMCL-RockPi/assets/./ppm_images_224/gold_fish.ppm
+================================================
+Start Running All Subgraphs ...
+====================================================
 
 
-*************
-
-run: Start running graph 2
 
 
-First graph inferencing image: 3:/data/data/com.termux/files/home/ARMCL-RockPi/assets/./ppm_images_224/gondola.ppm
+
+First graph inferencing image: 0:/data/data/com.termux/files/home/ARMCL-RockPi/assets/./ppm_images_227/space_shuttle_227.jpg
+
+
+First graph inferencing image: 1:/data/data/com.termux/files/home/ARMCL-RockPi/assets/./ppm_images_227/gold_fish.ppm
+---------- Top 5 predictions ----------
+
+0.9653 - [id = 812], n04266014 space shuttle
+0.0242 - [id = 404], n02690373 airliner
+0.0057 - [id = 657], n03773504 missile
+0.0021 - [id = 895], n04552348 warplane, military plane
+0.0017 - [id = 744], n04008634 projectile, missile
+
+
+First graph inferencing image: 2:/data/data/com.termux/files/home/ARMCL-RockPi/assets/./ppm_images_227/gondola.ppm
+---------- Top 5 predictions ----------
+
+1.0000 - [id = 1], n01443537 goldfish, Carassius auratus
+0.0000 - [id = 0], n01440764 tench, Tinca tinca
+0.0000 - [id = 2], n01484850 great white shark, white shark, man-eater, man-eating shark, Carcharodon carcharias
+0.0000 - [id = 3], n01491361 tiger shark, Galeocerdo cuvieri
+0.0000 - [id = 4], n01494475 hammerhead, hammerhead shark
+
+
+First graph inferencing image: 3:/data/data/com.termux/files/home/ARMCL-RockPi/assets/./ppm_images_227/school_bus.ppm
+---------- Top 5 predictions ----------
+
+1.0000 - [id = 576], n03447447 gondola
+0.0000 - [id = 1], n01443537 goldfish, Carassius auratus
+0.0000 - [id = 2], n01484850 great white shark, white shark, man-eater, man-eating shark, Carcharodon carcharias
+0.0000 - [id = 3], n01491361 tiger shark, Galeocerdo cuvieri
+0.0000 - [id = 4], n01494475 hammerhead, hammerhead shark
+
+
+First graph inferencing image: 4:/data/data/com.termux/files/home/ARMCL-RockPi/assets/./ppm_images_227/go_kart.ppm
+---------- Top 5 predictions ----------
+
+1.0000 - [id = 779], n04146614 school bus
+0.0000 - [id = 1], n01443537 goldfish, Carassius auratus
+0.0000 - [id = 2], n01484850 great white shark, white shark, man-eater, man-eating shark, Carcharodon carcharias
+0.0000 - [id = 3], n01491361 tiger shark, Galeocerdo cuvieri
+0.0000 - [id = 4], n01494475 hammerhead, hammerhead shark
+start of graph: 0 for frame: 5
+
+
+First graph inferencing image: 0:/data/data/com.termux/files/home/ARMCL-RockPi/assets/./ppm_images_227/space_shuttle_227.jpg
+---------- Top 5 predictions ----------
+
+0.9736 - [id = 573], n03444034 go-kart
+0.0119 - [id = 518], n03127747 crash helmet
+0.0108 - [id = 751], n04037443 racer, race car, racing car
+0.0022 - [id = 817], n04285008 sports car, sport car
+0.0006 - [id = 670], n03791053 motor scooter, scooter
+
+
+First graph inferencing image: 1:/data/data/com.termux/files/home/ARMCL-RockPi/assets/./ppm_images_227/gold_fish.ppm
+---------- Top 5 predictions ----------
+
+0.9653 - [id = 812], n04266014 space shuttle
+0.0242 - [id = 404], n02690373 airliner
+0.0057 - [id = 657], n03773504 missile
+0.0021 - [id = 895], n04552348 warplane, military plane
+0.0017 - [id = 744], n04008634 projectile, missile
+
+
+First graph inferencing image: 2:/data/data/com.termux/files/home/ARMCL-RockPi/assets/./ppm_images_227/gondola.ppm
+---------- Top 5 predictions ----------
+
+1.0000 - [id = 1], n01443537 goldfish, Carassius auratus
+0.0000 - [id = 0], n01440764 tench, Tinca tinca
+0.0000 - [id = 2], n01484850 great white shark, white shark, man-eater, man-eating shark, Carcharodon carcharias
+0.0000 - [id = 3], n01491361 tiger shark, Galeocerdo cuvieri
+0.0000 - [id = 4], n01494475 hammerhead, hammerhead shark
+
+
+First graph inferencing image: 3:/data/data/com.termux/files/home/ARMCL-RockPi/assets/./ppm_images_227/school_bus.ppm
+---------- Top 5 predictions ----------
+
+1.0000 - [id = 576], n03447447 gondola
+0.0000 - [id = 1], n01443537 goldfish, Carassius auratus
+0.0000 - [id = 2], n01484850 great white shark, white shark, man-eater, man-eating shark, Carcharodon carcharias
+0.0000 - [id = 3], n01491361 tiger shark, Galeocerdo cuvieri
+0.0000 - [id = 4], n01494475 hammerhead, hammerhead shark
+
+
+First graph inferencing image: 4:/data/data/com.termux/files/home/ARMCL-RockPi/assets/./ppm_images_227/go_kart.ppm
+---------- Top 5 predictions ----------
+
+1.0000 - [id = 779], n04146614 school bus
+0.0000 - [id = 1], n01443537 goldfish, Carassius auratus
+0.0000 - [id = 2], n01484850 great white shark, white shark, man-eater, man-eating shark, Carcharodon carcharias
+0.0000 - [id = 3], n01491361 tiger shark, Galeocerdo cuvieri
+0.0000 - [id = 4], n01494475 hammerhead, hammerhead shark
+Finishing power measurement with first subgraph0
+---------- Top 5 predictions ----------
+
+0.9736 - [id = 573], n03444034 go-kart
+0.0119 - [id = 518], n03127747 crash helmet
+0.0108 - [id = 751], n04037443 racer, race car, racing car
+0.0022 - [id = 817], n04285008 sports car, sport car
+0.0006 - [id = 670], n03791053 motor scooter, scooter
+
+
+Cost0:354.103
+input0_time:116.09
+task0_time:237.689
+output0_time:0.0343
+total0_time:353.812
+***************************************
+
+
+
+Cost1:362.728
+input1_time:283.775
+task1_time:78.9226
+output1_time:0.0255792
+total1_time:362.723
+***************************************
+
+
+
+Cost2:364.485
+input2_time:345.359
+task2_time:0.349767
+output2_time:18.7716
+total2_time:364.48
+***************************************
+
+
+NPU subgraph: 0 --> Cost: 365.068
+
+******************************************************
+
+Frame Latency: 437.612
+
+Test passed

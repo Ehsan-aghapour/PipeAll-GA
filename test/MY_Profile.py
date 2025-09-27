@@ -157,7 +157,8 @@ _save=0,
 _annotate=0,
 _layer_timing=0,
 _B_threads=2,
-_L_threads=4):
+_L_threads=4,
+new_run=True):
     
     global Dir
     global Graph
@@ -184,19 +185,20 @@ _L_threads=4):
     img=_imgs[Graph]
     data=_dts[Graph]
     label=_lbls[Graph]
-    rr='ab'
-    print(f'Command is: {rr}')
-    p = subprocess.Popen(rr.split())
-    p.communicate()
-    while(p.returncode):
-        print('ab not successful next try after 10s ...')
-        time.sleep(10)
+    if new_run:
+        rr='ab'
+        print(f'Command is: {rr}')
         p = subprocess.Popen(rr.split())
         p.communicate()
+        while(p.returncode):
+            print('ab not successful next try after 10s ...')
+            time.sleep(10)
+            p = subprocess.Popen(rr.split())
+            p.communicate()
 
-    rr=f'PiPush {Dir}/{Graph_ARMCL} test_graph'
-    print(f'Command is:{rr}')
-    p = subprocess.Popen(rr.split())
+        rr=f'PiPush {Dir}/{Graph_ARMCL} test_graph'
+        print(f'Command is:{rr}')
+        p = subprocess.Popen(rr.split())
 
     n=_n
     save=_save
@@ -210,7 +212,7 @@ _L_threads=4):
                     4,4,4,4,
                     N+1,N+1,N+1,N+1]
     Ref_PE='LBGN'
-    if UseCachedResult:
+    if UseCachedResult and new_run:
         try:
             with open('Profile/ProfileResult.pkl','rb') as f:
                 ProfResult=pickle.load(f)
@@ -534,9 +536,8 @@ def Run_Graph(ALL_Freqs, run_command, myoutput, blocking=True):
             #print(f'F: {F}')
             p.stdin.write(f'{F}\n')
         p.stdin.flush()
-    #for v in [0,0,0]:
-    #    p.stdin.write(f'{v}\n')
-    p.stdin.write('end\n')
+    for v in [0,0,0]:
+        p.stdin.write(f'{v}\n')
     p.stdin.flush()
     if blocking:
         p.wait()
